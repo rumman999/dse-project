@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Navbar from './components/Navbar'
 
 function App() {
   const [data, setData] = useState("")
@@ -14,7 +15,10 @@ function App() {
   }, [])
 
   return (
-    <h1 className="text-3xl font-bold text-blue-500">{data} </h1>
+    <>
+      <Navbar />
+      <h1 className="text-3xl font-bold text-blue-500">{data} </h1>
+    </>
   )
 }
 
