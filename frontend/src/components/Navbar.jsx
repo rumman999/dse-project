@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 
 const Navbar = () => {
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
   <div className="flex-1">
@@ -17,11 +19,11 @@ const Navbar = () => {
     </ul>
     <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
-  <input type="checkbox" className="theme-controller" value="light" />
+  <input type="checkbox" className="theme-controller" value="dark" />
 
   {/* sun icon */}
   <svg
-    className="swap-off h-10 w-10 fill-current"
+    className="swap-on h-10 w-10 fill-current"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     <path
@@ -30,7 +32,7 @@ const Navbar = () => {
 
   {/* moon icon */}
   <svg
-    className="swap-on h-10 w-10 fill-current"
+    className="swap-off h-10 w-10 fill-current"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     <path
