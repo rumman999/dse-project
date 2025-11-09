@@ -11,7 +11,7 @@ function App() {
     const fetchLast100 = async () => {
       try {
         const respond = await axios.get(
-          "http://localhost:5001/api/v1/stocks/historical"
+          "http://localhost:5003/api/v1/stocks/historical"
         );
         setHistoricalData(respond.data);
       } catch (error) {
