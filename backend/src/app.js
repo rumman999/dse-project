@@ -1,11 +1,13 @@
 import express from 'express'
 import cors from 'cors'
-import router from './routes/main.routes.js'
+import stockRouter from './routes/stock.routes.js'
 
 const app = express()
 
 app.use(cors())
 
-app.use('/', router)
+
+app.use('/api/v1/stocks', stockRouter)
+
 
 export default app
