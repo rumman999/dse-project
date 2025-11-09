@@ -1,0 +1,9 @@
+# Node.js
+node_modules
+
+# Python
+venv/
+__pycache__/
+
+# OS
+.DS_Store
