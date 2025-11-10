@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 
+import { useAuth } from '../context/AuthContext'
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
+  const { login } = useAuth()
 
   const navigate = useNavigate()
 
@@ -20,7 +24,7 @@ const Login = () => {
       );
 
       console.log(response.data);
-      localStorage.setItem('token', response.data.token);
+      login(response.data.token)
 
       navigate('/')
 

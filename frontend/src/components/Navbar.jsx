@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
+import { useAuth } from '../context/AuthContext'
 
 const Navbar = () => {
+
+  const { token, logout } = useAuth()
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
   <div className="flex-1">
-    <a className="btn btn-ghost text-xl">BiniyogAI</a>
+    <Link to='/' className="btn btn-ghost text-xl">BiniyogAI</Link>
   </div>
   <div className="flex-none">
     
     <ul className="menu menu-horizontal px-1">
-      <li><a>Link1</a></li>
-      <li><a>Link2</a></li>
-      <li><a>Link3</a></li>
-      <li><a>Link4</a></li>
-      <li><a>Link5</a></li>
+
+      {token ?
+        <>
+        <li><Link to='/portfolio  '>Portfolio</Link></li>
+        <li><Link to='/historical'>Historical Data</Link></li>
+        <li><button onClick={ logout }>Logout</button></li>
+        </>
+        : 
+        <>
+        <li><Link to='/register'>Register</Link></li> 
+        <li><Link to="/login">Login</Link></li>
+        </>
+      }
     </ul>
     <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
