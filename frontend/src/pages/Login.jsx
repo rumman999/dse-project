@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
+  const navigate = useNavigate()
 
   async function handleLogin() {
     try {
@@ -15,7 +18,12 @@ const Login = () => {
           password,
         }
       );
-      console.log(reponse.data);
+
+      console.log(response.data);
+      localStorage.setItem('token', response.data.token);
+
+      navigate('/')
+
     } catch (error) {
       console.log("Login Failed", error);
       if (error.response) {
