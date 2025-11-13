@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import HistoricalData from "./pages/HistoricalData";
 import Portfolio from "./pages/Portfolio";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PublicOnlyRoute from './components/PublicOnlyRoute'
 
 function App() {
   return (
@@ -15,8 +16,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route element={<PublicOnlyRoute />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/historical" element={<HistoricalData />} />
