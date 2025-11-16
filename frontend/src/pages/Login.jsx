@@ -24,7 +24,7 @@ const Login = () => {
       );
 
       console.log(response.data);
-      login(response.data.token)
+      login(response.data.user ,response.data.token)
 
       navigate('/')
 

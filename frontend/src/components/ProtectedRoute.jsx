@@ -4,13 +4,16 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const ProtectedRoute = () => {
-  const { token } = useAuth();
+  const { user, loading } = useAuth();
 
-  if (!token) {
-    return <Navigate to="/login" />;
+
+  if(loading){
+    return (        <div className="flex justify-center h-30 items-center">
+          <h1 className="text-blue-500">Loading data...</h1>
+        </div>)
   }
 
-  return <Outlet />
+  return user ? <Outlet /> : <Navigate to="/login" /> 
 };
 
 export default ProtectedRoute;
